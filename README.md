@@ -1,26 +1,61 @@
-Here are the instructions on how to run the agent.
+# Recall.ai Real-Time Voice Agent
 
-1. Activate the virtual environment:
+### [Watch the Demo Here!](https://www.loom.com/share/2a02fac2643441c1990da861e829892c)
 
-source .venv/bin/activate
+This demo application uses Recall.ai's [Output Media](https://docs.recall.ai/docs/stream-media) feature and OpenAI's [real-time API](https://platform.openai.com/docs/guides/realtime) to add an interactive voice agent to meetings.
 
-2. Run the server (terminal 1):
+## Prerequisites
 
-cd python-server
-python server.py
+1. [Node.js](https://nodejs.org/en/)
+2. [Ngrok](https://ngrok.com/docs/getting-started/)
+3. [Recall.ai API Key](https://www.recall.ai/)
+4. [OpenAI API Key](https://platform.openai.com/docs/overview)
 
-3. Run ngrok in a different terminal (terminal 2):
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone ...
+```
+
+### Install Dependencies
+
+#### Client
+
+```bash
+cd client
+npm install
+```
+
+#### Server
+
+```bash
+cd ../server
+npm install
+```
+
+## Configuration
+
+### OpenAI API Key
+
+In the server directory, copy the `.env.example` file and rename it to`.env`. Then, add your OpenAI API key.
+
+## Quickstart
+
+If you want to quickly test the functionality of this application, you don't need to host the frontend yourself. You can use our pre-hosted demo frontend at [https://recallai-demo.surge.sh](https://recallai-demo.surge.sh). However, you will still need to provide your OpenAI API key and ngrok URL.
+
+1. Start your backend server and expose it using ngrok:
+
+```bash
+npm run dev
 
 ngrok http 3000
+```
 
-4. Create a bot by sending a curl request. Ensure to:
-      - replace YOUR_RECALL_TOKEN (and server url)
-      - replace YOUR_NGROK_URL (do not include https://)
-      - replace YOUR_BOT_NAME
-      - replace meeting_url with your meeting url
+2. Create a bot by sending the following curl request, replacing YOUR_RECALL_TOKEN and YOUR_NGROK_URL with your values:
 
-CURL request template:
-
+```bash
 curl --request POST \
   --url https://us-east-1.recall.ai/api/v1/bot/ \
   --header 'Authorization: YOUR_RECALL_TOKEN' \
@@ -30,44 +65,60 @@ curl --request POST \
     "meeting_url": "YOUR_MEETING_URL",
     "bot_name": "Recall.ai Notetaker",
     "output_media": {
-      "camera": {
-        "kind": "webpage",
-        "config": {
-          "url": "https://recallai-demo.netlify.app?wss=wss://YOUR_NGROK_URL"
-        }
+      "kind": "webpage",
+      "config": {
+        "url": "https://recallai-demo.surge.sh?wss=wss://YOUR_NGROK_URL"
       }
-    },
-    "variant": {
-      "zoom": "web_4_core",
-      "google_meet": "web_4_core",
-      "microsoft_teams": "web_4_core"
     }
   }'
+```
 
-CURL request with a video:
+The bot will join your meeting URL and stream the demo webpage's content directly to your meeting.
 
-curl --request POST \
-  --url https://us-west-2.recall.ai/api/v1/bot/ \
-  --header 'Authorization: Recall API KEY' \
-  --header 'accept: application/json' \
-  --header 'content-type: application/json' \
-  --data '{
-    "meeting_url": "https://meet.google.com/nep-gmxq-tav",
-    "bot_name": "v1",
-    "output_media": {
-      "camera": {
-        "kind": "webpage",
-        "config": {
-          "url": "https://ai-orb-video.vercel.app?wss=wss://NGROK_URL"
-        }
-      },
-      "microphone": {
-        "kind": "audio"
-      }
-    },
-    "variant": {
-      "zoom": "web_4_core",
-      "google_meet": "web_4_core",
-      "microsoft_teams": "web_4_core"
+If you'd like to customize the webpage shown by the bot, or change the interaction with the OpenAI agent, follow the complete setup instructions below.
+
+## Customizing the Webpage
+
+### Local Development Setup
+
+Navigate to the client directory and start the development server:
+
+```bash
+cd client
+npm run dev
+```
+
+The client will be available at `http://localhost:5173`.
+
+### Modifying the Agent
+
+You can modify the initial prompt of the agent by editing the `conversation_config.ts` file.
+
+### Building for Production
+
+Build the client application:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory, ready to be deployed to your hosting service.
+
+Once the frontend is deployed on a hosting service, update your bot configuration to use your custom webpage URL:
+
+```json
+{
+  "output_media": {
+    "kind": "webpage",
+    "config": {
+      "url": "https://your-custom-url.com?wss=wss://your-server.com"
     }
-  }'
+  }
+}
+```
+
+Using this, you will be able to interact with a customized voice agent.
+
+## Acknowledgements
+
+This project incorporates code from [OpenAI's real-time API demo](https://github.com/openai/openai-realtime-console), which is under the MIT License.
