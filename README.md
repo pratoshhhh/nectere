@@ -65,9 +65,11 @@ curl --request POST \
     "meeting_url": "YOUR_MEETING_URL",
     "bot_name": "Recall.ai Notetaker",
     "output_media": {
-      "kind": "webpage",
-      "config": {
+      "camera": {
+        "kind": "webpage",
+        "config": {
         "url": "https://recallai-demo.surge.sh?wss=wss://YOUR_NGROK_URL"
+        }
       }
     }
   }'
