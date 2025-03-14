@@ -68,9 +68,14 @@ curl --request POST \
       "camera": {
         "kind": "webpage",
         "config": {
-        "url": "https://recallai-demo.surge.sh?wss=wss://YOUR_NGROK_URL"
+          "url": "https://recallai-demo.surge.sh?wss=wss://YOUR_NGROK_URL"
         }
       }
+    },
+    "variant": {
+      "zoom": "web_4_core",
+      "google_meet": "web_4_core",
+      "microsoft_teams": "web_4_core"
     }
   }'
 ```
