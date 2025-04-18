@@ -63,7 +63,7 @@ In the python-server directory, copy the `.env.example` file and rename it to `.
 
 ## Quickstart
 
-If you want to quickly test the functionality of this application, you don't need to host the frontend yourself. You can use our pre-hosted demo frontend at [https://recallai-demo.surge.sh](https://recallai-demo.surge.sh). However, you will still need to provide your OpenAI API key and ngrok URL.
+If you want to quickly test the functionality of this application, you don't need to host the frontend yourself. You can use our pre-hosted demo frontend at [https://recallai-demo.netlify.app](https://recallai-demo.netlify.app). However, you will still need to provide your OpenAI API key and ngrok URL.
 
 1. Start your backend server (choose either Node.js or Python implementation) and expose it using ngrok:
 
@@ -102,7 +102,7 @@ curl --request POST \
       "camera": {
         "kind": "webpage",
         "config": {
-          "url": "https://recallai-demo.surge.sh?wss=wss://YOUR_NGROK_URL"
+          "url": "https://recallai-demo.netlify.app?wss=wss://YOUR_NGROK_URL"
         }
       }
     },
