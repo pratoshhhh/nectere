@@ -52,6 +52,7 @@ pip install -r requirements.txt
 ## Configuration
 
 ### OpenAI API Key
+Note: You **must** add credits to your OpenAI account before running this demo. If your account has no credits, the demo will connect successfully, but the bot will not respond to anything you say in the meeting.
 
 #### Node.js Server
 
@@ -163,3 +164,8 @@ Using this, you will be able to interact with a customized voice agent.
 ## Acknowledgements
 
 This project incorporates code from [OpenAI's real-time API demo](https://github.com/openai/openai-realtime-console), which is under the MIT License.
+
+## FAQ
+
+### The webpage shows that my bot is connected, why isn't it replying to me in the meeting?
+If the webpage is showing a successful connection but the bot isn't speaking, it's likely that you need to add credits to your OpenAI account. If your account has no credits, the demo will connect successfully, but the bot will not respond to anything you say in the meeting.
