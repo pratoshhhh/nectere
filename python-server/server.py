@@ -12,7 +12,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-load_dotenv()
+from pathlib import Path
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 PORT = int(os.getenv("PORT", 3000))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
