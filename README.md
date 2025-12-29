@@ -1,8 +1,9 @@
 Here are the instructions on how to run the agent.
 
-1. Activate the virtual environment:
+1. Activate the virtual environment and download the required libraries:
 
 source .venv/bin/activate
+pip install -r requirements.txt
 
 2. Run the server (terminal 1):
 
