@@ -71,6 +71,3 @@ curl --request POST \
       "microsoft_teams": "web_4_core"
     }
   }'
-
-
-NOTE: Example CURL request stored in documents/haha.txt
