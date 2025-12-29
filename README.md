@@ -1,7 +1,3 @@
-Inspired by the GitHub repo: https://github.com/recallai/voice-agent-demo?tab=readme-ov-file
-
-Note: Try using https://cerebras.livekit.io/ for a more user-friendly interface.
-
 Here are the instructions on how to run the agent.
 
 1. Activate the virtual environment:
@@ -52,7 +48,7 @@ CURL request with a video:
 
 curl --request POST \
   --url https://us-west-2.recall.ai/api/v1/bot/ \
-  --header 'Authorization: 39a5a228edcedf70ce968211144c154ae5b05487' \
+  --header 'Authorization: Recall API KEY' \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
   --data '{
@@ -62,7 +58,7 @@ curl --request POST \
       "camera": {
         "kind": "webpage",
         "config": {
-          "url": "https://ai-orb-video.vercel.app?wss=wss://ofelia-unthumped-vixenishly.ngrok-free.dev"
+          "url": "https://ai-orb-video.vercel.app?wss=wss://NGROK_URL"
         }
       },
       "microphone": {
@@ -75,6 +71,3 @@ curl --request POST \
       "microsoft_teams": "web_4_core"
     }
   }'
-
-
-NOTE: Example CURL request stored in documents/haha.txt
