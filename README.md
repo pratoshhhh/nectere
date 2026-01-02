@@ -1,3 +1,7 @@
+An AI agent that joins a meeting and participates like a human. Useful for product demos, sales meetings, weekly meetings, etc.
+
+Inspired by: https://github.com/recallai/voice-agent-demo
+
 Here are the instructions on how to run the agent.
 
 1. Activate the virtual environment and download the required libraries:
