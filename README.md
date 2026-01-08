@@ -1,4 +1,4 @@
-An AI agent that joins a meeting and participates like a human. Useful for product demos, sales meetings, weekly meetings, etc.
+AI agent that joins a meeting and participates like a human. Useful for product demos, sales meetings, weekly meetings, etc.
 
 Inspired by: https://github.com/recallai/voice-agent-demo
 
