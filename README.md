@@ -57,13 +57,13 @@ curl --request POST \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
   --data '{
-    "meeting_url": "https://meet.google.com/nep-gmxq-tav",
+    "meeting_url": "https://meet.google.com/xxxxxxxxx",
     "bot_name": "v1",
     "output_media": {
       "camera": {
         "kind": "webpage",
         "config": {
-          "url": "https://ai-orb-video.vercel.app?wss=wss://NGROK_URL"
+          "url": "https://video-url?wss=wss://NGROK_URL"
         }
       },
       "microphone": {
